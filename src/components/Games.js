@@ -16,17 +16,17 @@ const Games = ({ games, chooseOdd }) => {
 					<div>
 						<InputGroup className="mb-3">
 							<InputGroup.Prepend>
-								<Button onClick={(e) => chooseOdd(e, p, 'is1Selected')}variant="outline-secondary">{p.homeWin}</Button>
+								<Button value={p.homeWin} onClick={(e) => chooseOdd(e, p, 'is1Selected')}variant="outline-secondary">{p.homeWin}</Button>
 							</InputGroup.Prepend>
 							<FormControl id="one" style={{ backgroundColor: p.is1Selected ? 'Yellow' : 'Gray' }} value={p.homeWin}  aria-describedby="basic-addon1" readOnly/>
 
 							<InputGroup.Prepend>
-								<Button onClick={(e) => chooseOdd(e, p, 'is2Selected')} variant="outline-secondary">{p.draw}</Button>
+								<Button value={p.draw} onClick={(e) => chooseOdd(e, p, 'is2Selected')} variant="outline-secondary">{p.draw}</Button>
 							</InputGroup.Prepend>
 							<FormControl id="two" style={{ backgroundColor: p.is2Selected ? 'Yellow' : 'Gray' }} value={p.draw}  aria-describedby="basic-addon1" readOnly/>
 
 							<InputGroup.Prepend>
-								<Button onClick={(e) => chooseOdd(e, p, 'is3Selected')} variant="outline-secondary">{p.awayWin}</Button>
+								<Button value={p.awayWin} onClick={(e) => chooseOdd(e, p, 'is3Selected')} variant="outline-secondary">{p.awayWin}</Button>
 							</InputGroup.Prepend>
 							<FormControl id="three" style={{ backgroundColor: p.is3Selected ? 'Yellow' : 'Gray' }} value={p.awayWin} aria-describedby="basic-addon1" readOnly/>
 						</InputGroup>

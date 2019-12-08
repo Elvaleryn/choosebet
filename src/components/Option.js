@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
-const Option = ({ option, result, handleMoneyChange }) => {
+const Option = ({ betMoney, result, handleMoneyChange }) => {
 
 
 
@@ -36,7 +36,7 @@ const Option = ({ option, result, handleMoneyChange }) => {
 								<option value="7">7</option>
 								<option value="8">8</option>
 							</Form.Control>
-							K.Bedeli:{option}
+							K.Bedeli:{betMoney}
 							M. kazanç:{result}
 						</Col>
 					</Row>

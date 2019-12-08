@@ -16,13 +16,14 @@ import Col from 'react-bootstrap/Col'
 
 const App = () => {
 
-	//set state for option element
-	const [option, setOption] = useState(Number)
+	//state for selecting how much money user will put
+	const [betMoney, setBetMoney] = useState(Number)
 	//state for the odd value
 	const [chosen, setChosen] = useState([1])
 	//basically a data base for games
 	const [games, setGames] = useState([])
 
+	//getting data from server
 	useEffect(() => {
 		gameService
 			.fetchGames()
@@ -31,21 +32,29 @@ const App = () => {
 			})
 	}, [])
 
+	//to pick the chosen odd
 	const handleOptionChange = (game, option) => {
 		game[option] = !game[option]
 		setGames([...games])
 	}
 
 	const handleMoneyChange = (event) => {
-		setOption(event.target.value)
+		setBetMoney(event.target.value)
 	}
 
+	//when odd is chosen it activates the handle option change to apply background color
 	const chooseOdd = (e, person, option) => {
 		handleOptionChange(person, option)
 		setChosen(chosen.concat(e.target.value))
 	}
+	
 	const ratioTotal = chosen.reduce((a, b) => a * b)
-	const result = parseFloat(ratioTotal * option).toFixed(2)
+	const result = parseFloat(ratioTotal * betMoney).toFixed(2)
+
+	console.log(chosen);
+	console.log(betMoney);
+	console.log(ratioTotal);
+	console.log(result);
 
 	return (
 		<Container>
@@ -65,7 +74,7 @@ const App = () => {
 			<Row className="justify-content-md-center">
 				<Col md="auto">
 					<Option
-						option={option}
+						betMoney={betMoney}
 						result={result}
 						handleMoneyChange={handleMoneyChange}
 					/>
