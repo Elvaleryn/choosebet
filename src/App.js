@@ -16,6 +16,8 @@ import Col from 'react-bootstrap/Col'
 
 const App = () => {
 
+	//background style
+	document.body.style = 'background:  	#7289da;';
 	//state for selecting how much money user will put
 	const [betMoney, setBetMoney] = useState(Number)
 	//state for the odd value
@@ -58,7 +60,7 @@ const App = () => {
 
 	return (
 		<Container>
-			<Row className="justify-content-center">
+			<Row className="justify-content-md-center">
 				<Col md="auto">
 					<Header />
 				</Col>

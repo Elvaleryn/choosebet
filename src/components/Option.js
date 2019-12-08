@@ -25,9 +25,9 @@ const Option = ({ betMoney, result, handleMoneyChange }) => {
 			</form> */}
 			<Form>
 				<Form.Group controlId="exampleForm.ControlSelect1">
-					<Row>
+					<Row className="justify-content-md-center">
 						<Col>
-							<Form.Label>Select</Form.Label>
+							<Form.Label></Form.Label>
 							<Form.Control as="select" onChange={handleMoneyChange}>
 								<option value="3">3</option>
 								<option value="4">4</option>
@@ -36,8 +36,10 @@ const Option = ({ betMoney, result, handleMoneyChange }) => {
 								<option value="7">7</option>
 								<option value="8">8</option>
 							</Form.Control>
-							K.Bedeli:{betMoney}
-							M. kazanç:{result}
+							<p	style={{fontWeight: '600'}, {fontSize: '2em'}}>
+							Kupon Bedeli:{betMoney}<br></br>
+							Maksimum kazanç:{result}
+							</p>
 						</Col>
 					</Row>
 				</Form.Group>
