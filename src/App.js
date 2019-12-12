@@ -15,16 +15,22 @@ import Col from 'react-bootstrap/Col'
 
 
 const App = () => {
+	//1- add a state to store the ratios and by click i will add or remove them from the state
+	//so, onclick i want to add and remove the value from the state
+	//the problem was when i choose the first odd active state becomes true and when i try to choose second odd active state tries to imply from true side. I should create states for each of them or i should apply the method to change color.
+	//2- functionality to choose only one ratio from each game 
+	//3- figure out option behavior
 
 	//background style
-	document.body.style = 'background:  	#7289da;';
+	document.body.style = 'background:#7289da;'
+
 	//state for selecting how much money user will put
-	const [betMoney, setBetMoney] = useState(Number)
+	const [betMoney, setBetMoney] = useState(3)
 	//state for the odd value
 	const [chosen, setChosen] = useState([1])
 	//basically a data base for games
 	const [games, setGames] = useState([])
-
+	
 	//getting data from server
 	useEffect(() => {
 		gameService
@@ -46,17 +52,21 @@ const App = () => {
 
 	//when odd is chosen it activates the handle option change to apply background color
 	const chooseOdd = (e, person, option) => {
+		//when odd is chosen it activates the handle option change to apply background color
 		handleOptionChange(person, option)
-		setChosen(chosen.concat(e.target.value))
+		const index = e.target.value
+		setChosen(chosen.concat(index))
 	}
-	
+
 	const ratioTotal = chosen.reduce((a, b) => a * b)
 	const result = parseFloat(ratioTotal * betMoney).toFixed(2)
 
-	console.log(chosen);
-	console.log(betMoney);
-	console.log(ratioTotal);
-	console.log(result);
+	// let ratios = chosen.reduce((a, b) => a * b)
+	// const result = parseFloat(ratios * betMoney).toFixed(2)
+
+	console.log(`CHOSEN RATIO: ${chosen}`);
+	console.log(`BETTED AMOUNT: ${betMoney}`);
+	console.log(`RESULT: ${result}`);
 
 	return (
 		<Container>
