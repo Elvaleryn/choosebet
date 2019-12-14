@@ -21,6 +21,8 @@ const App = () => {
 	//2- functionality to choose only one ratio from each game 
 	//3- figure out option behavior
 
+	//!important note: maybe find the game by id then use their value to altering the chosen state.
+
 	//background style
 	document.body.style = 'background:#7289da;'
 
